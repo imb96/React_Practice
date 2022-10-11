@@ -5,14 +5,17 @@ const App = () => {
   const [usersList, setUsersList] = useState([]);
   const addUserHandler = (uName, uAge) => {
     setUsersList((prevUserList) => {
-      return [...prevUserList, { name: uName, age: uAge }];
+      return [
+        ...prevUserList,
+        { name: uName, age: uAge, id: Math.random().toString() },
+      ];
     });
   };
   return (
-    <div>
+    <React.Fragment>
       <AddUser onAddUser={addUserHandler} />
       <UsersList users={usersList} />
-    </div>
+    </React.Fragment>
   );
 };
 
